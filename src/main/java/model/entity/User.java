@@ -1,22 +1,30 @@
 package model.entity;
 
+import model.entity.acces_type.Role;
+
 public class User {
-    private int id;
-    private String name;
-    private String surname;
-    private String email;
+    private Integer id;
+    private String login;
     private String password;
-    private String role;
+    private String email;
+    private String name;
+    private String nameEn;
+    private String surname;
+    private String surnameEn;
+    private Role role;
 
     public User() {
     }
 
-    public User(int id, String name, String surname, String email, String password, String role) {
+    public User(Integer id, String login, String password, String email, String name, String nameEn, String surname, String surnameEn , Role role) {
         this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
+        this.login = login;
         this.password = password;
+        this.email = email;
+        this.name = name;
+        this.name = nameEn;
+        this.surname = surname;
+        this.surname = surnameEn;
         this.role = role;
     }
 
