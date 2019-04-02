@@ -18,7 +18,7 @@
     <br/>
       <a href="${pageContext.request.contextPath}/login.jsp">Login</a>
         <br>
-          <a href="${pageContext.request.contextPath}/api/students">StudentList</a>
+          <a href="${pageContext.request.contextPath}/api/students">RoomsList</a>
         <br>
     <a href="${pageContext.request.contextPath}/api/exception">Exception</a>
   <br>

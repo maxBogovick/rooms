@@ -19,7 +19,7 @@
 <br/>
 
 <br>
-<form method="GET" action="${pageContext.request.contextPath}/api/teacher-login">
+<form method="GET" action="${pageContext.request.contextPath}/api/user-login">
     <input type="text" name="name"/><br>
     <input type="password" name = "pass"/><br>
     <input type="submit"/>
