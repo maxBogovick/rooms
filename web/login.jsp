@@ -8,9 +8,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Login Page</title>
 </head>
 <body>
+<h2>
+    Please login! <br/>
+
+</h2>
+
+<br/>
+
+<br>
+<form method="GET" action="${pageContext.request.contextPath}/api/teacher-login">
+    <input type="text" name="name"/><br>
+    <input type="password" name = "pass"/><br>
+    <input type="submit"/>
+</form>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 package model.dao.impl;
 
-import model.dao.ConnectionPoolHolder;
 import model.dao.DaoFactory;
+import model.dao.UserDao;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -11,10 +11,10 @@ public class JDBCDaoFactory extends DaoFactory {
 
     private DataSource dataSource = ConnectionPoolHolder.getDataSource();
 
-//    @Override
-//    public TeacherDao createTeacherDao() {
-//        return new JDBCTeacherDao(getConnection());
-//    }
+    @Override
+    public UserDao createUserDao() {
+        return new JDBCUserDao(getConnection());
+    }
 //    @Override
 //    public StudentDao createStudentDao() {
 //        return new JDBCStudentDao(getConnection());

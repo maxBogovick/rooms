@@ -11,19 +11,17 @@
     <title>Room Reservation</title>
   </head>
   <body>
-  <h2>
-    Room reservation! <br/>
+    <h2>
+      Hello Clients! <br/>
+    </h2>
 
-  </h2>
-
-  <br/>
-
+    <br/>
+      <a href="${pageContext.request.contextPath}/login.jsp">Login</a>
+        <br>
+          <a href="${pageContext.request.contextPath}/api/students">StudentList</a>
+        <br>
+    <a href="${pageContext.request.contextPath}/api/exception">Exception</a>
   <br>
-  <form method="GET" action="${pageContext.request.contextPath}/api/teacher-login">
-    <input type="text" name="name"/><br>
-    <input type="password" name = "pass"/><br>
-    <input type="submit"/>
-  </form>
 
   </body>
 </html>

@@ -1,4 +1,4 @@
-package model.dao;
+package model.dao.impl;
 
 import org.apache.commons.dbcp.BasicDataSource;
 
