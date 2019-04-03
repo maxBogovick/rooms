@@ -9,28 +9,17 @@ public class User {
     private String login;
     private String password;
     private String email;
-    private String name;
-    private String nameEn;
-    private String surname;
-    private String surnameEn;
     private Role role;
 
-    public User() {
-    }
-
-    public User(Integer id, String login, String password, String email, String name, String nameEn, String surname, String surnameEn , Role role) {
+    public User(Integer id, String login, String password, String email, Role role) {
         this.id = id;
         this.login = login;
         this.password = password;
         this.email = email;
-        this.name = name;
-        this.name = nameEn;
-        this.surname = surname;
-        this.surname = surnameEn;
         this.role = role;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
     public void setId(int id) {
@@ -57,34 +46,6 @@ public class User {
     }
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getNameEn() {
-        return nameEn;
-    }
-    public void setNameEn(String nameEn) {
-        this.nameEn = nameEn;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getSurnameEn() {
-        return surnameEn;
-    }
-    public void setSurnameEn(String surnameEn) {
-        this.surnameEn = surnameEn;
     }
 
     public Role getRole() {
@@ -116,10 +77,6 @@ public class User {
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", firstName='" + name + '\'' +
-                ", firstName_en='" + nameEn + '\'' +
-                ", lastName='" + surname + '\'' +
-                ", lastName_en='" + surnameEn + '\'' +
                 ", role=" + role +
                 '}';
     }
