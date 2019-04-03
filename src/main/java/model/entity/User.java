@@ -1,6 +1,6 @@
 package model.entity;
 
-import model.entity.acces_type.Role;
+import model.entity.types.Role;
 
 import java.util.Objects;
 

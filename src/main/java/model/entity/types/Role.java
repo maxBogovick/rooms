@@ -1,4 +1,4 @@
-package model.entity.acces_type;
+package model.entity.types;
 
 public enum Role {
     VIZITOR,

@@ -6,7 +6,8 @@ import java.util.List;
 public class Order {
     private Integer id;
     private Integer totalCost;
-    private List<User> user = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
+    private List<Room> rooms = new ArrayList<>();
 
     public Order(Integer id, Integer totalCost ) {
         this.id = id;
@@ -27,8 +28,17 @@ public class Order {
         this.totalCost = totalCost;
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
 
-    public List<User> getUser() {
-        return user;
+    public void settUsers(List<User> users) {
+        this.users = users;
+    }
+    public List<Room> getRooms() {
+        return rooms;
+    }
+    public void settRooms(List<Room> rooms) {
+        this.rooms = rooms;
     }
 }
