@@ -11,6 +11,8 @@ public class User {
     private String email;
     private Role role;
 
+    public User() {}
+
     public User(Integer id, String login, String password, String email, Role role) {
         this.id = id;
         this.login = login;

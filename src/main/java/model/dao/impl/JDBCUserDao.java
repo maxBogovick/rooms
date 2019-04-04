@@ -59,7 +59,7 @@ public class JDBCUserDao implements UserDao {
     public Optional<User> findByName(String name) {
 
         Optional<User> result = Optional.empty();
-        try(PreparedStatement ps = connection.prepareCall("SELECT * FROM teacher WHERE name = ?")){
+        try(PreparedStatement ps = connection.prepareCall("SELECT * FROM user WHERE name = ?")){
             ps.setString( 1, name);
             ResultSet rs;
             rs = ps.executeQuery();

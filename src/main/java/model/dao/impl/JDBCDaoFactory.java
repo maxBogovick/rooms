@@ -1,6 +1,7 @@
 package model.dao.impl;
 
 import model.dao.DaoFactory;
+import model.dao.RoomDao;
 import model.dao.UserDao;
 
 import javax.sql.DataSource;
@@ -15,10 +16,10 @@ public class JDBCDaoFactory extends DaoFactory {
     public UserDao createUserDao() {
         return new JDBCUserDao(getConnection());
     }
-//    @Override
-//    public StudentDao createStudentDao() {
-//        return new JDBCStudentDao(getConnection());
-//    }
+    @Override
+    public RoomDao createRoomDao() {
+        return new JDBCRoomDao(getConnection());
+    }
 
     private Connection getConnection(){
         try {

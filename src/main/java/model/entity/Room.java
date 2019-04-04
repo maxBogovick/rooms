@@ -11,6 +11,8 @@ public class Room {
     private Integer cost;
     private Integer quota;
 
+    public Room() {}
+
     public Room(int id_room, RoomType room_type, int capacity, Integer cost, Integer quota) {
         this.id_room = id_room;
         this.room_type = room_type;

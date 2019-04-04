@@ -12,17 +12,16 @@ public class UserMapper implements ObjectMapper<User> {
     public User extractFromResultSet(ResultSet rs) throws SQLException {
         User user = new User();
         user.setId(rs.getInt("id"));
-        user.setName(rs.getString("name"));
-        user.setSurname(rs.getString("surname"));
-        user.setEmail(rs.getString("email"));
+        user.setLogin(rs.getString("login"));
         user.setPassword(rs.getString("hash_pass"));
-        user.setRole(rs.getString(
-                "role"));
+        user.setEmail(rs.getString("email"));
+//        user.setRole(rs.getRole(
+//                "role"));
         return user;
     }
 
-    public User makeUnique(Map<Integer, User> cache,
-                              User user) {
+
+    public User makeUnique(Map<Integer, User> cache, User user) {
         cache.putIfAbsent(user.getId(), user);
         return cache.get(user.getId());
     }

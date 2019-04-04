@@ -4,9 +4,11 @@ import model.dao.DaoFactory;
 import model.dao.UserDao;
 import model.entity.User;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 public class UserService {
+
 
     DaoFactory daoFactory = DaoFactory.getInstance();
     public Optional<User> login(String name){
