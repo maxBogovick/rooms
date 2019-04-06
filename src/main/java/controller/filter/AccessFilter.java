@@ -1,4 +1,4 @@
-package filter;
+package controller.filter;
 
 import model.entity.User;
 

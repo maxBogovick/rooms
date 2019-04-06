@@ -3,11 +3,12 @@ package controller.commands.mainCommand;
 import controller.commands.Command;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-public class LogOutCommand implements Command {
+public class UserCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {
-        return "redirect:/index.jsp";
+
+        return "/error.jsp";
     }
+
 }

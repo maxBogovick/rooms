@@ -1,37 +1,36 @@
-//package controller.commands;
-//
-//import controller.commands.mainCommand.SignInCommand;
-//import controller.commands.mainCommand.UnknownCommand;
-//
-//public class CommandFactory {
-//    public static final String SIGN_IN = "sign_in";
-//    public static final String LOGIN_PAGE = "login_page";
-//    public static final String REGISTRATION_PAGE = "registration_page";
-//    public static final String REGISTRATION = "registration";
-//    public static final String SIGN_OUT = "sign_out";
-//    public static final String ADMIN_HOME_PAGE = "admin_home_page";
-//    public static final String CLIENT_HOME_PAGE = "client_home_page";
-//    public static final String CREATE_ORDER = "create_order";
-//    public static final String CHOSE_APARTMENT_BY_ADMIN = "chose_apartment";
-//    public static final String SEND_BILL_TO_CLIENT = "create_bill";
-//    public static final String CLIENT_BILLS_PAGE = "bills-page";
-//    public static final String CHANGE_LOCALE = "change-locale";
-//    public static final String BILL_PAYMENT = "billPayment";
-//    public static final String REJECT_ORDER = "reject-order";
-//
-//    public static Command createCommand(String command) {
-//
-//        if (command == null) {
-//            command = LOGIN_PAGE;
-//        }
+package controller.commands;
 
-//        switch (command) {
-//            case SIGN_IN:
-//                return new SignInCommand(UserServiceImpl.getInstance());
-//            case CHANGE_LOCALE:
-//                return new LocaleCommand();
-//            default:
-//                return new UnknownCommand();
-//        }
-//    }
-//}
+import controller.commands.mainCommand.LogOutCommand;
+import controller.commands.mainCommand.RegistrationCommand;
+import controller.commands.mainCommand.SignInCommand;
+import controller.commands.mainCommand.UnknownCommand;
+import controller.commands.mainCommand.util.Util;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Logger;
+
+public class CommandFactory {
+    private static volatile CommandFactory commandFactory;
+
+    private static Map<String, Command> commands = new HashMap<>();
+
+    static {
+        commands.put(Util.LOGIN_PAGE.getPath(), new SignInCommand());
+        commands.put(Util.REGISTRATION.getPath(), new RegistrationCommand());
+        commands.put(Util.LOG_OUT.getPath(), new LogOutCommand());
+        commands.put(Util.ERROR_PAGE.getPath(), new UnknownCommand());
+    }
+
+    public static Command getCommand(String url) {
+        Command command = commands.getOrDefault(url, r ->"/index.jsp");
+//        logger.info(String.format("get command by url = %s", url));
+
+        if( command == null){
+            return new UnknownCommand();
+        }
+
+        return command;
+
+    }
+}

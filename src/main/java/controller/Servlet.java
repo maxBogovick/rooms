@@ -1,6 +1,7 @@
 package controller;
 
 import controller.commands.Command;
+import controller.commands.CommandFactory;
 import controller.commands.mainCommand.LogOutCommand;
 import controller.commands.mainCommand.RegistrationCommand;
 import controller.commands.mainCommand.SignInCommand;
@@ -16,13 +17,13 @@ import java.util.Map;
 
 public class Servlet extends HttpServlet {
 
-    private Map<String, Command> commands = new HashMap<>();
+//    private Map<String, Command> commands = new HashMap<>();
 
     public void init() {
-        commands.put("login", new SignInCommand());
-        commands.put("logout", new LogOutCommand());
-        commands.put("registration", new RegistrationCommand());
-        commands.put("exceprion", new UnknownCommand());
+//        commands.put("login", new SignInCommand());
+//        commands.put("logout", new LogOutCommand());
+//        commands.put("registration", new RegistrationCommand());
+//        commands.put("exceprion", new UnknownCommand());
     }
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
@@ -40,10 +41,9 @@ public class Servlet extends HttpServlet {
 
         String path = request.getRequestURI();
         System.out.println(path);
-        path = path.replaceAll(".*/app/" , "");
+        path = path.replaceAll(".*/api/" , "");
         System.out.println(path);
-        Command command = commands.getOrDefault(path ,
-                (r)->"/index.jsp)");
+        Command command = CommandFactory.getCommand(path);
         String page = command.execute(request);
         if(page.contains("redirect")){
             response.sendRedirect(page.replace("redirect:", "/api"));

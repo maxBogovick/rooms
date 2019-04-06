@@ -5102,7 +5102,7 @@ if (Vel) {
           if (newOption) activateOption(options, newOption);
         }
 
-        // Automaticaly clean filter query so user can search again by starting letters
+        // Automaticaly clean controller.filter query so user can search again by starting letters
         setTimeout(function () {
           filterQuery = [];
         }, 1000);
