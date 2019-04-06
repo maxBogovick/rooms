@@ -2,7 +2,7 @@ package controller.commands.mainCommand.util;
 
 public enum Util {
 
-    SIGN_IN("/view/sign_in"),
+    SIGN_IN("login_submit"),
     LOGIN_PAGE("login"),
     ERROR_PAGE("/view/arror_page"),
     REGISTRATION("/view/registration"),

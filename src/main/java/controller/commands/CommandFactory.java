@@ -1,9 +1,6 @@
 package controller.commands;
 
-import controller.commands.mainCommand.LogOutCommand;
-import controller.commands.mainCommand.RegistrationCommand;
-import controller.commands.mainCommand.SignInCommand;
-import controller.commands.mainCommand.UnknownCommand;
+import controller.commands.mainCommand.*;
 import controller.commands.mainCommand.util.Util;
 
 import java.util.HashMap;
@@ -20,6 +17,7 @@ public class CommandFactory {
         commands.put(Util.REGISTRATION.getPath(), new RegistrationCommand());
         commands.put(Util.LOG_OUT.getPath(), new LogOutCommand());
         commands.put(Util.ERROR_PAGE.getPath(), new UnknownCommand());
+        commands.put(Util.SIGN_IN.getPath(), new UserCommand());
     }
 
     public static Command getCommand(String url) {

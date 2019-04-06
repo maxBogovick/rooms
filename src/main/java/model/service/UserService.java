@@ -12,8 +12,8 @@ public class UserService {
     DaoFactory daoFactory = DaoFactory.getInstance();
     public Optional<User> login(String name){
         Optional<User> result; //= Optional.empty();
-        try(UserDao teacherDao = daoFactory.createUserDao()){
-            result = teacherDao.findByName(name);
+        try(UserDao userDao = daoFactory.createUserDao()){
+            result = userDao.findByName(name);
         }
         return result;
     }
