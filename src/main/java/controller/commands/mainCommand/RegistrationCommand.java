@@ -5,6 +5,7 @@ import model.dao.impl.JDBCUserDao;
 import model.entity.User;
 import model.entity.types.Role;
 import model.service.UserService;
+import model.util.Constants;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,21 +21,17 @@ public class RegistrationCommand implements Command {
 
         User user = new User();
         user.setLogin(nameFromRequest);
-        user.setPassword(passFromRequest);
+        String passWithHash = Constants.getPwdHash(passFromRequest);
+        user.setPassword(passWithHash);
         user.setEmail("mail.ua");
-        //user.setRole(Role.ADMIN);
+        user.setRole(Role.CLIENT);
 
         JDBCUserDao jdbcUserDao = new JDBCUserDao();
         try {
             jdbcUserDao.create(user);
-            System.out.println("=================");
         } catch (SQLException e) {
-            System.out.println("----------------");
             e.printStackTrace();
         }
-
-        //userService.login(user);
-
         return "/registration.jsp";
     }
 }
