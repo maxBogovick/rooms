@@ -17,13 +17,7 @@ import java.util.Map;
 
 public class Servlet extends HttpServlet {
 
-//    private Map<String, Command> commands = new HashMap<>();
-
     public void init() {
-//        commands.put("login", new SignInCommand());
-//        commands.put("logout", new LogOutCommand());
-//        commands.put("registration", new RegistrationCommand());
-//        commands.put("exceprion", new UnknownCommand());
     }
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)

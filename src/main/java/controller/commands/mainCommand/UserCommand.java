@@ -11,10 +11,12 @@ public class UserCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {
         UserService userService = new UserService();
-        String nameFromRequest = request.getParameterValues("name")[0];
-        String passFromRequest = request.getParameterValues("pass")[0];
-        User user = userService.login(nameFromRequest).get();
+        String nameFromRequest = request.getParameter("name");
+        String passFromRequest = request.getParameter("pass");
+
+        User user = userService.login(nameFromRequest);
         String password = user.getPassword();
+
         if (Constants.getPwdHash(passFromRequest).equals(password)){
             return "/user.jsp";
         }

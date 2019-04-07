@@ -14,7 +14,7 @@ public class JDBCDaoFactory extends DaoFactory {
 
     @Override
     public UserDao createUserDao() {
-        return new JDBCUserDao(getConnection());
+        return new JDBCUserDao();
     }
     @Override
     public RoomDao createRoomDao() {

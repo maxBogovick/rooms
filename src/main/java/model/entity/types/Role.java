@@ -5,15 +5,15 @@ public enum Role {
     CLIENT,
     ADMIN;
 
-    private long id;
+    private int id;
 
     Role() {}
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 

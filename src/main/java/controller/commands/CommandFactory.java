@@ -18,6 +18,7 @@ public class CommandFactory {
         commands.put(Util.LOG_OUT.getPath(), new LogOutCommand());
         commands.put(Util.ERROR_PAGE.getPath(), new UnknownCommand());
         commands.put(Util.SIGN_IN.getPath(), new UserCommand());
+        commands.put(Util.SHOW_REGISTRATION.getPath(), new ShowRegistrationPageCommand());
     }
 
     public static Command getCommand(String url) {

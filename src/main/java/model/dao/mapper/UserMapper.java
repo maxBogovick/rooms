@@ -1,6 +1,7 @@
 package model.dao.mapper;
 
 import model.entity.User;
+import model.entity.types.Role;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,13 +11,18 @@ public class UserMapper implements ObjectMapper<User> {
 
     @Override
     public User extractFromResultSet(ResultSet rs) throws SQLException {
-        User user = new User();
-        user.setId(rs.getInt("id_user"));
-        user.setLogin(rs.getString("login"));
-        user.setPassword(rs.getString("password"));
-        user.setEmail(rs.getString("user_email"));
-//        user.setRole(rs.getRole(
-//                "role"));
+        //User user = new User();
+        System.out.println("in mapper");
+        int id = rs.getInt("id_user");
+        String login = rs.getString("login");
+        String password = rs.getString("password");
+        String mail = rs.getString("user_email");
+        Role role = Role.ADMIN;
+
+
+        System.out.println("end mapper");
+        User user = new User(id, login, password, mail, role);
+        System.out.println(user);
         return user;
     }
 

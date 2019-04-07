@@ -3,34 +3,45 @@ package model.dao.impl;
 import model.dao.UserDao;
 import model.dao.mapper.UserMapper;
 import model.entity.User;
+import model.entity.types.Role;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
 
 public class JDBCUserDao implements UserDao {
     private Connection connection;
 
-    public JDBCUserDao(Connection connection) {
-        this.connection = connection;
-    }
+    //public JDBCUserDao(Connection connection) {
+       // this.connection = connection;
+   // }
+
+    public JDBCUserDao(){}
 
 
     @Override
-    public void create(User entity) {
+    public boolean create(User entity) throws SQLException {
         try(Connection connection = ConnectionPoolHolder.getInstance().getConnection();
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO user(id_user, login, password, user_email, role_ID_role) VALUES (?, ?,?,?,?)")){
-            statement.setInt(1, entity.getId());
-            statement.setString(2, entity.getLogin());
-            statement.setString(3, entity.getPassword());
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO user(login, password, user_email, role_ID_role) VALUES (?,?,?,?)")){
+
+            System.out.println(entity);
+
+            statement.setString(1, entity.getLogin());
+            statement.setString(2, entity.getPassword());
+            statement.setString(3, entity.getEmail());
+            statement.setInt(4, 2);//entity.getRole().getId());
+
+            statement.execute();
+            return true;
+
        //     statement.setInt(4, entity.getRole());
 
 
-        }catch (SQLException ex){
-
+        }catch (SQLException | RuntimeException ex){
+            System.out.println(ex);
+            throw new RuntimeException();
         }
 
     }
@@ -67,20 +78,22 @@ public class JDBCUserDao implements UserDao {
     }
 
     @Override
-    public Optional<User> findByName(String name) {
+    public User findByName(String name) throws RuntimeException {
 
-        Optional<User> result = Optional.empty();
-        try(PreparedStatement ps = connection.prepareCall("SELECT * FROM user WHERE login = ?")){
-            ps.setString( 1, name);
-            ResultSet rs;
-            rs = ps.executeQuery();
-            UserMapper mapper = new UserMapper();
-            if (rs.next()){
-                result = Optional.of(mapper.extractFromResultSet(rs));
-            }
-        }catch (Exception ex){
-            throw new RuntimeException(ex);
+        try(Connection connection = ConnectionPoolHolder.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user WHERE login = ?")){
+            preparedStatement.setString(1,name);
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+
+            User user = new UserMapper().extractFromResultSet(rs);
+            System.out.println(user + "++++++++++++++++++" );
+
+            return user;
+
+        }catch (SQLException ex){
+            System.out.println(ex);
+            throw new RuntimeException();
         }
-        return result;
     }
 }

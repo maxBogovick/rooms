@@ -2,12 +2,12 @@ package controller.commands.mainCommand;
 
 import controller.commands.Command;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-public class LogOutCommand implements Command {
+public class ShowRegistrationPageCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {
-        return "/index.jsp";
+        return "/registration.jsp";
     }
 }

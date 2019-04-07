@@ -23,8 +23,8 @@ public class JDBCRoomDao implements RoomDao {
     }
 
     @Override
-    public void create(Room entity) {
-
+    public boolean create(Room entity) {
+        return false;
     }
 
     @Override
