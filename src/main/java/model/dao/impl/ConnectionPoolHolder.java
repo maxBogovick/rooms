@@ -3,9 +3,29 @@ package model.dao.impl;
 import org.apache.commons.dbcp.BasicDataSource;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class ConnectionPoolHolder {
+    private static ConnectionPoolHolder instance;
     private static volatile DataSource dataSource;
+
+    private ConnectionPoolHolder(){
+        getDataSource();
+    }
+
+    public static synchronized ConnectionPoolHolder getInstance(){
+        if(instance == null){
+            synchronized (ConnectionPoolHolder.class){
+                if(instance == null){
+                    instance = new ConnectionPoolHolder();
+                }
+            }
+        }
+        return instance;
+    }
+
+
     public static DataSource getDataSource(){
 
         if (dataSource == null){
@@ -24,6 +44,10 @@ public class ConnectionPoolHolder {
         }
         return dataSource;
 
+    }
+
+    public Connection getConnection() throws SQLException {
+        return dataSource.getConnection();
     }
 
 

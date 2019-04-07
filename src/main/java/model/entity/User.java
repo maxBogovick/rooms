@@ -21,7 +21,7 @@ public class User {
         this.role = role;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
     public void setId(int id) {

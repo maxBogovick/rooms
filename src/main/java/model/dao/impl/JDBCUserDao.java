@@ -21,6 +21,17 @@ public class JDBCUserDao implements UserDao {
 
     @Override
     public void create(User entity) {
+        try(Connection connection = ConnectionPoolHolder.getInstance().getConnection();
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO user(id_user, login, password, user_email, role_ID_role) VALUES (?, ?,?,?,?)")){
+            statement.setInt(1, entity.getId());
+            statement.setString(2, entity.getLogin());
+            statement.setString(3, entity.getPassword());
+       //     statement.setInt(4, entity.getRole());
+
+
+        }catch (SQLException ex){
+
+        }
 
     }
 
@@ -66,7 +77,7 @@ public class JDBCUserDao implements UserDao {
             UserMapper mapper = new UserMapper();
             if (rs.next()){
                 result = Optional.of(mapper.extractFromResultSet(rs));
-            }//TODO : ask question how avoid two teachers with the same name
+            }
         }catch (Exception ex){
             throw new RuntimeException(ex);
         }
