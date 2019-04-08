@@ -8,6 +8,7 @@ public enum Util {
     REGISTRATION("registration"),
     SHOW_REGISTRATION("show_registration"),
     LOG_OUT("log_out"),
+    CLIENT_INFO_PAGE("client_info_page"),
 
     ADMIN_HOME_PAGE("admin_home_page"),
     CLIENT_HOME_PAGE("client_home_page"),
