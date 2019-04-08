@@ -5,9 +5,9 @@ import java.util.Objects;
 public class Room {
     private int id_room;
     private String room_type;
-    private Integer capacity;
-    private Integer cost;
-    private Integer quota;
+    private int capacity;
+    private int cost;
+    private int quota;
 
     public Room() {}
 
@@ -40,7 +40,9 @@ public class Room {
     public void setCapacity(int email) {
         this.capacity = capacity;
     }
-
+    public int getCost() {
+        return cost;
+    }
     public void setCost(int cost) {
         this.cost = cost;
     }
@@ -57,9 +59,9 @@ public class Room {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Room that = (Room) o;
-        return room_type.equals(that.room_type) &&
-                capacity.equals(that.capacity) &&
-                cost.equals(that.cost);
+        return room_type.equals(that.room_type);
+//                capacity.equals(that.capacity) &&
+//                cost.equals(that.cost);
     }
 
     @Override

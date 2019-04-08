@@ -12,6 +12,6 @@ public interface Command {
 //    String CLIENT_BILLS_JSP = "/client/bills_page.jsp";
 //    String ERROR_PAGE = "/common/error_page.jsp";
 
-    String execute(HttpServletRequest request);
+    String execute(HttpServletRequest request, HttpServletResponse response);
 }
 

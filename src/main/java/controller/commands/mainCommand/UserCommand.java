@@ -6,10 +6,11 @@ import model.service.UserService;
 import model.util.Constants;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class UserCommand implements Command {
     @Override
-    public String execute(HttpServletRequest request) {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
         UserService userService = new UserService();
         String nameFromRequest = request.getParameter("name");
         String passFromRequest = request.getParameter("pass");

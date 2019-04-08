@@ -10,14 +10,16 @@
 
 <div style="padding: 5px;">
 
-    <a href="${pageContext.request.contextPath}/">Home</a>
+    <button class="w3-btn w3-hover-light-blue w3-round-large" onclick="location.href='/api/info_page'">About Hotel</button>
     |
     <a href="${pageContext.request.contextPath}/roomList">Room List</a>
     |
-    <a href="${pageContext.request.contextPath}/userInfo">My Account Info</a>
+    <a href="${pageContext.request.contextPath}/roomList">Room List</a>
     |
-    <a href="${pageContext.request.contextPath}/login">Login</a>
+    <%--<a href="${pageContext.request.contextPath}/userInfo">My Account Info</a>--%>
+    <button class="w3-btn w3-hover-light-blue w3-round-large" onclick="location.href='/api/user_info_page'">My Account Info</button>
+
     |
-    <a href="${pageContext.request.contextPath}/logout">Logout</a>
+    <button class="w3-btn w3-hover-light-blue w3-round-large" onclick="location.href='/api/log_out'">Logout</button>
 
 </div>

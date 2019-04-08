@@ -14,8 +14,7 @@ import java.sql.SQLException;
 public class RegistrationCommand implements Command {
 
     @Override
-    public String execute(HttpServletRequest request) {
-        //UserService userService = new UserService();
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
         String nameFromRequest = request.getParameter("name");
         String passFromRequest = request.getParameter("pass");
 

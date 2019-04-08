@@ -6,10 +6,7 @@ import model.dao.mapper.UserMapper;
 import model.entity.Room;
 import model.entity.User;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,8 +20,24 @@ public class JDBCRoomDao implements RoomDao {
     }
 
     @Override
-    public boolean create(Room entity) {
-        return false;
+    public boolean create(Room entity) throws SQLException {
+        try(Connection connection = ConnectionPoolHolder.getInstance().getConnection();
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO rooms(room_type, capacity, cost, quota) VALUES (?,?,?,?)")){
+
+            System.out.println(entity);
+
+            statement.setString(1, entity.getRoomType());
+            statement.setInt(2, entity.getCapacity());
+            statement.setInt(3, entity.getCost());
+            statement.setInt(4, entity.getQuota());
+
+            statement.execute();
+            return true;
+
+        }catch (SQLException | RuntimeException ex){
+            System.out.println(ex);
+            throw new RuntimeException();
+        }
     }
 
     @Override

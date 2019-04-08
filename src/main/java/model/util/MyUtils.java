@@ -32,12 +32,12 @@ public class MyUtils {
     // Сохранить информацию пользователя, который вошел в систему (login) в Session.
     public static void storeLoginedUser(HttpSession session, User loginedUser) {
         // В JSP можно получить доступ через ${loginedUser}
-        session.setAttribute("loginedUser", loginedUser);
+        session.setAttribute("User", loginedUser);
     }
 
     // Получить информацию пользователя, сохраненная в Session.
     public static User getLoginedUser(HttpSession session) {
-        User loginedUser = (User) session.getAttribute("loginedUser");
+        User loginedUser = (User) session.getAttribute("User");
         return loginedUser;
     }
 
