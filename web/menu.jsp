@@ -12,9 +12,9 @@
 
     <button class="w3-btn w3-hover-light-blue w3-round-large" onclick="location.href='/api/info_page'">About Hotel</button>
     |
-    <a href="${pageContext.request.contextPath}/roomList">Room List</a>
+    <button class="w3-btn w3-hover-light-blue w3-round-large" onclick="location.href='/api/room_list'">Room List</button>
     |
-    <a href="${pageContext.request.contextPath}/roomList">Room List</a>
+    <button class="w3-btn w3-hover-light-blue w3-round-large" onclick="location.href='/api/admin_home_list'">Admin Room List</button>
     |
     <%--<a href="${pageContext.request.contextPath}/userInfo">My Account Info</a>--%>
     <button class="w3-btn w3-hover-light-blue w3-round-large" onclick="location.href='/api/user_info_page'">My Account Info</button>

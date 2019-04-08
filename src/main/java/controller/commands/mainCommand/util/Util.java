@@ -10,8 +10,9 @@ public enum Util {
     LOG_OUT("log_out"),
     INFO_PAGE("info_page"),
     USER_HOME_PAGE("user_home_page"),
+    ROOM_LIST("room_list"),
+    ADMIN_ROOM_LIST("admin_home_list"),
 
-    ADMIN_HOME_PAGE("admin_home_page"),
     CREATE_ORDER("create_order"),
     CHOSE_APARTMENT_BY_ADMIN("chose_apartment"),
     SEND_BILL_TO_CLIENT("create_bill"),
