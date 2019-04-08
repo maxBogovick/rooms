@@ -7,8 +7,8 @@ public enum Util {
     ERROR_PAGE("arror"),
     REGISTRATION("registration"),
     SHOW_REGISTRATION("show_registration"),
-
     LOG_OUT("log_out"),
+
     ADMIN_HOME_PAGE("admin_home_page"),
     CLIENT_HOME_PAGE("client_home_page"),
     CREATE_ORDER("create_order"),

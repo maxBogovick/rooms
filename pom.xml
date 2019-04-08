@@ -61,7 +61,7 @@
 
     </dependencies>
     <build>
-        <finalName>StudentDB</finalName>
+        <finalName>RoonBooking</finalName>
         <plugins>
 
             <plugin>

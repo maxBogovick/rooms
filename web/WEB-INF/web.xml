@@ -7,7 +7,7 @@
     <display-name>Archetype Created Web Application</display-name>
     <servlet>
         <servlet-name>Servl</servlet-name>
-        <servlet-class>controller.Servlet</servlet-class>
+        <servlet-class>controller.Servler</servlet-class>
     </servlet>
 
     <servlet-mapping>

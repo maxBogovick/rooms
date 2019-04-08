@@ -87,7 +87,6 @@ public class JDBCUserDao implements UserDao {
             rs.next();
 
             User user = new UserMapper().extractFromResultSet(rs);
-            System.out.println(user + "++++++++++++++++++" );
 
             return user;
 

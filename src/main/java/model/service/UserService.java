@@ -12,7 +12,6 @@ public class UserService {
         UserDao userDao = daoFactory.createUserDao();
 
             User user = userDao.findByName(name);
-            System.out.println(user + " 00000000");
             return user;
 
     }

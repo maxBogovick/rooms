@@ -11,18 +11,15 @@ public class UserMapper implements ObjectMapper<User> {
 
     @Override
     public User extractFromResultSet(ResultSet rs) throws SQLException {
-        //User user = new User();
         System.out.println("in mapper");
         int id = rs.getInt("id_user");
         String login = rs.getString("login");
         String password = rs.getString("password");
         String mail = rs.getString("user_email");
-        Role role = Role.ADMIN;
+        Role role = Role.CLIENT;
 
 
-        System.out.println("end mapper");
         User user = new User(id, login, password, mail, role);
-        System.out.println(user);
         return user;
     }
 

@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Servlet extends HttpServlet {
+public class Servler extends HttpServlet {
 
     public void init() {
     }

@@ -1,19 +1,17 @@
 package model.entity;
 
-import model.entity.types.RoomType;
-
 import java.util.Objects;
 
 public class Room {
     private int id_room;
-    private RoomType room_type;
+    private String room_type;
     private Integer capacity;
     private Integer cost;
     private Integer quota;
 
     public Room() {}
 
-    public Room(int id_room, RoomType room_type, int capacity, Integer cost, Integer quota) {
+    public Room(int id_room, String room_type, int capacity, int cost, int quota) {
         this.id_room = id_room;
         this.room_type = room_type;
         this.capacity = capacity;
@@ -24,32 +22,33 @@ public class Room {
     public int getRoomID() {
         return id_room;
     }
+
     public void setRoomID(int id_room) {
         this.id_room = id_room;
     }
 
-    public RoomType getRoomType() {
+    public String getRoomType() {
         return room_type;
     }
-    public void setRoomType(RoomType room_type) {
+    public void setRoomType(String room_type) {
         this.room_type = room_type;
     }
 
-    public Integer getCapacity() {
+    public int getCapacity() {
         return capacity;
     }
-    public void setCapacity(Integer email) {
+    public void setCapacity(int email) {
         this.capacity = capacity;
     }
 
-    public void setCost(Integer cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
 
-    public Integer getQuota() {
+    public int getQuota() {
         return quota;
     }
-    public void setQuota(Integer quota) {
+    public void setQuota(int quota) {
         this.quota = quota;
     }
 

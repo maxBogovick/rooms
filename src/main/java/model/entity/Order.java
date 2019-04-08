@@ -1,20 +1,18 @@
 package model.entity;
 
-import model.entity.types.RoomType;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private Integer id;
-    private Integer totalCost;
-    private RoomType roomType;
-    private Integer clientId;
+    private int id;
+    private int totalCost;
+    private String roomType;
+    private int clientId;
     private User client;
 
     private List<Room> rooms = new ArrayList<>();
 
-    public Order(Integer id, Integer totalCost, RoomType roomType, Integer clientId, User client) {
+    public Order(Integer id, int totalCost, String roomType, int clientId, User client) {
         this.id = id;
         this.totalCost = totalCost;
         this.roomType = roomType;
@@ -28,16 +26,16 @@ public class Order {
     public void setId(int id) {
         this.id = id;
     }
-    public Integer getTotalCost() {
+    public int getTotalCost() {
         return totalCost;
     }
-    public void setTotalCost(Integer totalCost) {
+    public void setTotalCost(int totalCost) {
         this.totalCost = totalCost;
     }
-    public RoomType getRoomType() {
+    public String getRoomType() {
         return roomType;
     }
-    public void setRoomType(RoomType roomType) {
+    public void setRoomType(String roomType) {
         this.roomType = roomType;
     }
     public int getClientId() {
