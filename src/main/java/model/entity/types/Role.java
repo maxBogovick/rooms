@@ -1,13 +1,14 @@
 package model.entity.types;
 
 public enum Role {
-    VIZITOR,
     CLIENT,
-    ADMIN;
+    ADMIN,
+    VIZITOR;
 
     private int id;
 
-    Role() {}
+    Role() {
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -16,6 +17,5 @@ public enum Role {
     public int getId() {
         return id;
     }
-
 
 }

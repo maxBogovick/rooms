@@ -4,7 +4,7 @@ public enum Util {
 
     SIGN_IN("login_submit"),
     LOGIN_PAGE("login"),
-    ERROR_PAGE("arror"),
+    ERROR_PAGE("error"),
     REGISTRATION("registration"),
     SHOW_REGISTRATION("show_registration"),
     LOG_OUT("log_out"),

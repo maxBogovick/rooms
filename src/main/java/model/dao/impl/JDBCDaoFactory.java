@@ -3,6 +3,7 @@ package model.dao.impl;
 import model.dao.DaoFactory;
 import model.dao.RoomDao;
 import model.dao.UserDao;
+import org.apache.log4j.Logger;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -20,6 +21,9 @@ public class JDBCDaoFactory extends DaoFactory {
     public RoomDao createRoomDao() {
         return new JDBCRoomDao(getConnection());
     }
+//    @Override RoomDao createRoleDao() {
+//        return new JDBCRoleDao(getConnection());
+//    }
 
     private Connection getConnection(){
         try {

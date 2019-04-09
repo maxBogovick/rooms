@@ -9,16 +9,7 @@ public abstract class DaoFactory {
 
     public abstract UserDao createUserDao();
     public abstract RoomDao createRoomDao();
-
-//    public abstract UserDAO getUserDAO();
-//
-//    public abstract ApartmentDAO getApartmentDAO();
-//
-//    public abstract OrderDAO getOrderDAO();
-//
-//    public abstract BillDAO getBillDAO();
-//
-//    public abstract Connection getConnection();
+//    public abstract RoleDao createRoleDao();
 
 
     public static DaoFactory getInstance(){

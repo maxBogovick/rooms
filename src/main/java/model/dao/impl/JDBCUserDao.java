@@ -1,6 +1,7 @@
 package model.dao.impl;
 
 import model.dao.UserDao;
+import model.dao.mapper.RoleMapper;
 import model.dao.mapper.UserMapper;
 import model.entity.User;
 import model.entity.types.Role;
@@ -13,12 +14,14 @@ import java.util.List;
 
 public class JDBCUserDao implements UserDao {
     private Connection connection;
+    private UserMapper userMapper;
+    private RoleMapper roleMapper;
 
-    //public JDBCUserDao(Connection connection) {
-       // this.connection = connection;
-   // }
-
-    public JDBCUserDao(){}
+    public JDBCUserDao(){
+        this.connection = connection;
+        userMapper = new UserMapper();
+        roleMapper = new RoleMapper();
+    }
 
 
     @Override
@@ -31,7 +34,8 @@ public class JDBCUserDao implements UserDao {
             statement.setString(1, entity.getLogin());
             statement.setString(2, entity.getPassword());
             statement.setString(3, entity.getEmail());
-            statement.setInt(4, 2);//entity.getRole().getId());
+            statement.setInt(4, 1);
+            //entity.getRole().getId());
 
             statement.execute();
             return true;

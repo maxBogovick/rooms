@@ -1,43 +1,58 @@
-package controller.filter;
-
-import model.entity.User;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-
-public class AccessFilter implements Filter {
-    private final Logger LOGGER = LogManager.getLogger();
-    private RequestDispatcher requestDispatcher;
-
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-
-    }
-
-    @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-
-        User user;
-        HttpServletRequest request = (HttpServletRequest) servletRequest;
-        String path = request.getRequestURI();
-        if(path.contains("add-room")) {//TODO: rewrite add user roles
-            if ((user = (User) ((HttpServletRequest) servletRequest).getSession().getAttribute("user")) != null) {
-                filterChain.doFilter(servletRequest,servletResponse);
-            }else{
-                servletResponse.getWriter().append("AccessDenied");
-                return;
-            }
-        }else{
-            filterChain.doFilter(servletRequest,servletResponse);
-        }
-    }
-
-    @Override
-    public void destroy() {
-
-    }
-}
+//package controller.filter;
+//
+//import model.entity.User;
+//import model.util.AccessManager;
+//import model.util.AttributesManager;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
+//
+//import javax.servlet.*;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+//import javax.servlet.http.HttpSession;
+//import java.io.IOException;
+//
+//public class AccessFilter extends AbstractFilter {
+//    private final static Logger LOGGER = LogManager.getLogger(AccessFilter.class);
+//
+//    @Override
+//    public void init(FilterConfig filterConfig) throws ServletException {
+//
+//    }
+//    @Override
+//    public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException {
+//        LOGGER.debug("Start of Access filter");
+//        String uri = request.getRequestURI();
+//        User user = getUserFromRequestSession(request);
+//        String userRole = null;
+//        if (user != null) {
+//            userRole = user.getRole().toString();
+//        }
+//
+//        AccessManager manager = new AccessManager();
+//
+//        if (manager.isSecuredPage(uri)) {
+//            boolean hasPermission = manager.checkPermission(uri, userRole);
+//            if (!hasPermission) {
+//                String email = user.getEmail();
+//                LOGGER.error("Unauthorized access, email: " + (email == null ? "unregistered" : email));
+//                throw new RuntimeException();
+//            }
+//        }
+//        filterChain.doFilter(request, response);
+//    }
+//
+//    private User getUserFromRequestSession(HttpServletRequest request) {
+//        HttpSession session = request.getSession();
+//        User user = null;
+//        if (session != null)
+//            user = (User) session.getAttribute(AttributesManager.getProperty("user"));
+//        LOGGER.debug("Get user from request: " + user);
+//        return user;
+//    }
+//
+//    @Override
+//    public void destroy() {
+//
+//    }
+//}
