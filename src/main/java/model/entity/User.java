@@ -9,11 +9,11 @@ public class User {
     private String login;
     private String password;
     private String email;
-    private Role role;
+    private int role;
 
     public User() {}
 
-    public User(Integer id, String login, String password, String email, Role role) {
+    public User(Integer id, String login, String password, String email, int role) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -21,12 +21,12 @@ public class User {
         this.role = role;
     }
 
-    public User(Integer id, String login, String password, String email) {
-        this.id = id;
-        this.login = login;
-        this.password = password;
-        this.email = email;
-    }
+//    public User(Integer id, String login, String password, String email) {
+//        this.id = id;
+//        this.login = login;
+//        this.password = password;
+//        this.email = email;
+//    }
 
     public int getId() {
         return id;
@@ -57,10 +57,10 @@ public class User {
         this.email = email;
     }
 
-    public Role getRole() {
+    public int getRole() {
         return role;
     }
-    public void setRole(Role role) {
+    public void setRole(int role) {
         this.role = role;
     }
 

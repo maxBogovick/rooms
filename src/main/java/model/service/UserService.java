@@ -7,6 +7,7 @@ import model.entity.User;
 public class UserService {
 
 
+
     DaoFactory daoFactory = DaoFactory.getInstance();
     public User login(String name){
         UserDao userDao = daoFactory.createUserDao();

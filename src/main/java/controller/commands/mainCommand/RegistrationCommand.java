@@ -23,7 +23,7 @@ public class RegistrationCommand implements Command {
         String passWithHash = Constants.getPwdHash(passFromRequest);
         user.setPassword(passWithHash);
         user.setEmail("mail.ua");
-        user.setRole(Role.CLIENT);
+        user.setRole(2);
 
         JDBCUserDao jdbcUserDao = new JDBCUserDao();
         try {

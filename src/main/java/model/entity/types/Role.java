@@ -1,21 +1,17 @@
 package model.entity.types;
 
 public enum Role {
-    CLIENT,
-    ADMIN,
-    VIZITOR;
+    CLIENT(1),
+    ADMIN(2),
+    VIZITOR(3);
 
-    private int id;
+    private int role;
 
-    Role() {
+    Role(int role) {
+        this.role = role;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getRole() {
+        return role;
     }
-
-    public int getId() {
-        return id;
-    }
-
 }

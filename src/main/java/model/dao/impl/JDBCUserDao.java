@@ -1,10 +1,8 @@
 package model.dao.impl;
 
 import model.dao.UserDao;
-import model.dao.mapper.RoleMapper;
 import model.dao.mapper.UserMapper;
 import model.entity.User;
-import model.entity.types.Role;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,12 +13,12 @@ import java.util.List;
 public class JDBCUserDao implements UserDao {
     private Connection connection;
     private UserMapper userMapper;
-    private RoleMapper roleMapper;
+
 
     public JDBCUserDao(){
         this.connection = connection;
         userMapper = new UserMapper();
-        roleMapper = new RoleMapper();
+
     }
 
 

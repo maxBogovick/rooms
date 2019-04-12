@@ -6,7 +6,6 @@ import org.apache.logging.log4j.Logger;
 import java.util.ResourceBundle;
 
 public class AttributesManager {
-    private static final Logger LOGGER = LogManager.getLogger(AttributesManager.class);
 
     private final static ResourceBundle resourceBundle = ResourceBundle.getBundle("attributes");
 
