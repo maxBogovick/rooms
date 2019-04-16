@@ -13,6 +13,6 @@ public class RoomListCommand implements Command {
 
 
 
-       return "/roomList.jsp";
+       return ROOM_LIST_JSP;
     }
 }

@@ -14,6 +14,6 @@ public class SignInCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
 
 
-        return "/login.jsp";
+        return SIGN_IN_JSP;
     }
 }

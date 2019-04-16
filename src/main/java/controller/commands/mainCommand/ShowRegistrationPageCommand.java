@@ -9,6 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 public class ShowRegistrationPageCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        return "/registration.jsp";
+        return REGISTRATION_PAGE_JSP;
     }
 }

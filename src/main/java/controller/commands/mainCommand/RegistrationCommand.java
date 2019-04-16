@@ -31,6 +31,6 @@ public class RegistrationCommand implements Command {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return "/index.jsp";
+        return HOME;
     }
 }

@@ -10,6 +10,6 @@ public class AdminRoomListCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
 
 
-       return "/roomListAdmin.jsp";
+       return ADMIN_HOME_JSP;
     }
 }

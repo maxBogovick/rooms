@@ -1,3 +1,5 @@
+//
+//
 //package controller.filter;
 //
 //import model.entity.User;
@@ -12,45 +14,38 @@
 //import javax.servlet.http.HttpSession;
 //import java.io.IOException;
 //
-//public class AccessFilter extends AbstractFilter {
-//    private final static Logger LOGGER = LogManager.getLogger(AccessFilter.class);
+//public class AccessFilter extends Filter {
 //
 //    @Override
 //    public void init(FilterConfig filterConfig) throws ServletException {
 //
 //    }
+//
 //    @Override
-//    public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException {
-//        LOGGER.debug("Start of Access filter");
-//        String uri = request.getRequestURI();
-//        User user = getUserFromRequestSession(request);
-//        String userRole = null;
-//        if (user != null) {
-//            userRole = user.getRole().toString();
+//    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+//        final HttpServletRequest request = (HttpServletRequest) servletRequest;
+//        final HttpServletResponse response = (HttpServletResponse) servletResponse;
+//        final HttpSession session = request.getSession();
+//        String loginURI = request.getContextPath() + "/university/login";
+//        String registrationURI = request.getContextPath() + "/university/registration";
+//
+//        boolean loggedIn = session != null && session.getAttribute("user") != null;
+//        boolean loginRequest = request.getRequestURI().equals(loginURI);
+//        boolean signUpRequest = request.getRequestURI().equals(registrationURI);
+//        if (loggedIn || loginRequest || signUpRequest) {
+//            filterChain.doFilter(request, response);
+//        } else if (request.getRequestURI().equals("/university/registration")) {
+//            request.getRequestDispatcher(AccessManager.getProperty("registration")).forward(request,response);
+//
+//        }
+//        else if (request.getRequestURI().equals("/university/login")) {
+//            request.getRequestDispatcher(AccessManager.getProperty("login")).forward(request, response);
+//        }
+//        else {
+//            response.sendRedirect("/university/login");
 //        }
 //
-//        AccessManager manager = new AccessManager();
-//
-//        if (manager.isSecuredPage(uri)) {
-//            boolean hasPermission = manager.checkPermission(uri, userRole);
-//            if (!hasPermission) {
-//                String email = user.getEmail();
-//                LOGGER.error("Unauthorized access, email: " + (email == null ? "unregistered" : email));
-//                throw new RuntimeException();
-//            }
-//        }
-//        filterChain.doFilter(request, response);
 //    }
-//
-//    private User getUserFromRequestSession(HttpServletRequest request) {
-//        HttpSession session = request.getSession();
-//        User user = null;
-//        if (session != null)
-//            user = (User) session.getAttribute(AttributesManager.getProperty("user"));
-//        LOGGER.debug("Get user from request: " + user);
-//        return user;
-//    }
-//
 //    @Override
 //    public void destroy() {
 //

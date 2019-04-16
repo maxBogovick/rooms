@@ -19,8 +19,8 @@ public class UserCommand implements Command {
         String password = user.getPassword();
 
         if (Constants.getPwdHash(passFromRequest).equals(password)){
-            return "/user.jsp";
+            return USER;
         }
-        return "/login.jsp";
+        return SIGN_IN_JSP;
     }
 }

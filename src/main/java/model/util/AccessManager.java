@@ -55,11 +55,9 @@ public class AccessManager {
     public boolean isSecuredPage(String urlPattern) {
         for (Role role : Role.values()) {
             if (urlPattern.contains(role.toString().toLowerCase())) {
-                LOGGER.debug("Page is secured");
                 return true;
             }
         }
-        LOGGER.debug("Page isn't secured");
         return false;
     }
 
