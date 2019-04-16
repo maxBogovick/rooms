@@ -15,6 +15,7 @@ public class CommandFactory {
     static {
         commands.put(Util.LOGIN_PAGE.getPath(), new SignInCommand());
         commands.put(Util.REGISTRATION.getPath(), new RegistrationCommand());
+        commands.put(Util.USER_HOME_PAGE.getPath(), new UserHomePageCommand());
         commands.put(Util.LOG_OUT.getPath(), new LogOutCommand());
         commands.put(Util.ERROR_PAGE.getPath(), new ErrorCommand());
         commands.put(Util.SIGN_IN.getPath(), new UserCommand());
