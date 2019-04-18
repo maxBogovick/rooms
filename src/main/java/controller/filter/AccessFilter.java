@@ -20,6 +20,7 @@ public class AccessFilter implements Filter {
 
     private List<String> allowedUrls = new ArrayList<>();
     private List<String> clientUrls = new ArrayList<>();
+    private List<String> adminUrls = new ArrayList<>();
 
     @Override
     public void init(FilterConfig filterConfig) {
@@ -29,13 +30,17 @@ public class AccessFilter implements Filter {
                     .map(String::trim)
                     .collect(Collectors.toList());
         }
-
         String clientParameter = filterConfig.getInitParameter("client-urls");
         if (clientParameter != null && !clientParameter.isEmpty()) {
             clientUrls = Arrays.stream(clientParameter.split(","))
                     .map(String::trim)
                     .collect(Collectors.toList());
-
+        }
+        String adminParameter = filterConfig.getInitParameter("admin-urls");
+        if (adminParameter != null && !adminParameter.isEmpty()) {
+            adminUrls = Arrays.stream(adminParameter.split(","))
+                    .map(String::trim)
+                    .collect(Collectors.toList());
         }
     }
 
@@ -72,7 +77,7 @@ public class AccessFilter implements Filter {
 //            return;
         }
 
-        request.getRequestDispatcher("/api/" + Util.LOGIN_PAGE.getPath()).forward(request, response);
+        request.getRequestDispatcher("/api/" + Util.ERROR_PAGE.getPath()).forward(request, response);
     }
 
     @Override
