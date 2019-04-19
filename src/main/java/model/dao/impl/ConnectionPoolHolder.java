@@ -2,8 +2,12 @@ package model.dao.impl;
 
 import org.apache.commons.dbcp.BasicDataSource;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.naming.NoInitialContextException;
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionPoolHolder {
@@ -31,14 +35,13 @@ public class ConnectionPoolHolder {
         if (dataSource == null){
             synchronized (ConnectionPoolHolder.class) {
                 if (dataSource == null) {
-                    BasicDataSource ds = new BasicDataSource();
-                    ds.setUrl("jdbc:mysql://localhost:3306/roomsProject?characterEncoding=latin1");
-                    ds.setUsername("root");
-                    ds.setPassword("535715aQ");
-                    ds.setMinIdle(5);
-                    ds.setMaxIdle(10);
-                    ds.setMaxOpenPreparedStatements(100);
-                    dataSource = ds;
+                    InitialContext initContext= null;
+                    try {
+                        initContext = new InitialContext();
+                        dataSource = (DataSource) initContext.lookup("java:comp/env/jdbc/TestDB");
+                    } catch (NamingException e) {
+                        throw new RuntimeException("Error occur during configured datasource, cause: " + e.getMessage()); 
+                    }
                 }
             }
         }

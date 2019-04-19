@@ -8,6 +8,8 @@ public class Room {
     private int capacity;
     private int cost;
     private int quota;
+    private Integer orderId;
+    private Booking booking;
 
     public Room() {}
 
@@ -52,6 +54,14 @@ public class Room {
     }
     public void setQuota(int quota) {
         this.quota = quota;
+    }
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     @Override

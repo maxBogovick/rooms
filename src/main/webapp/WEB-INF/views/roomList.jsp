@@ -17,7 +17,7 @@
 
 <body class="w3-light-grey">
 <div class="w3-container w3-blue-grey w3-opacity w3-right-align">
-    <h1>User info!</h1>
+    <h1>Rooms info!</h1>
 </div>
 
 <div class="w3-container w3-padding">
@@ -36,13 +36,15 @@
     <th>Quota</th>
     <th>Book</th>
 </tr>
-<c:forEach items="${productList}" var="product" >
+<c:forEach items="${rooms}" var="room" >
     <tr>
-    <td>${product.code}</td>
-    <td>${product.name}</td>
-    <td>${product.price}</td>
-    <td>
-        </c:forEach>
+        <td>${room.roomType}</td>
+        <td>${room.capacity}</td>
+        <td>${room.cost}</td>
+        <td>${room.quota}</td>
+        <td><input type="checkbox" name="canBooking" <c:if test="${Objects.isNull(room.orderId)}">checked="checked"</c:if> /> </td>
+    </tr>
+</c:forEach>
 </table>
             <br>
         </div>
